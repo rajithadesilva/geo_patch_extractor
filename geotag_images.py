@@ -9,7 +9,7 @@ from tqdm import tqdm
 # --- CONFIG ---
 image_folder = 'data/colour'
 llh_file = 'data/gps/1_6.LLH'
-output_csv = 'data/1_6_interpolated.csv'
+output_csv = 'data/1_6.csv'
 map_folder = 'map'
 os.makedirs(map_folder, exist_ok=True)
 
@@ -58,7 +58,7 @@ for idx in range(len(image_frame_numbers)-1):
 # Save CSV
 with open(output_csv, 'w', newline='') as f:
     writer = csv.writer(f)
-    writer.writerow(['image_file_name', 'latitude', 'longitude', 'altitude'])
+    writer.writerow(['image', 'latitude', 'longitude', 'altitude'])
     writer.writerows(csv_rows)
 
 print(f"Interpolated GPS data saved to {output_csv}")
